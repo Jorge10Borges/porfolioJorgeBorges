@@ -1,0 +1,44 @@
+---
+import '../styles/global.css';
+
+---
+
+
+<section class="container md:flex justify-center items-cente w-full h-fit" data-aos="fade-up">
+  <!-- Texto Izquierdo -->
+  <div class="lg:w-1/2 flex flex-col justify-center md:items-start items-center p-8 lg:p-16">
+    <h1 class="text-4xl md:text-5xl font-extrabold text-gray-400 leading-tight text-center md:text-left" data-aos="zoom-in">
+      Hola, soy
+      <br>
+      <span class="text-blue-500">Jorge Borges</span>
+    </h1>
+    <p class="mt-8 text-3xl md:text-2xl text-gray-300 text-center" data-aos="fade-in">
+      Desarrollador de Software.
+    </p>
+    <p class="mt-4 text-gray-400 text-center md:text-left text-2xl md:text-xl">
+      Creando software innovador y a medida para empresas con tecnología de vanguardia.
+    </p>
+    <div class="mt-6">
+      <a href="/contact" class="inline-block px-6 py-3 bg-blue-500 text-white rounded hover:bg-blue-600 shadow">
+        Contáctame
+      </a>
+    </div>
+  </div>
+
+  <!-- Foto Derecha -->
+  <div class="flex justify-center relative">
+    <img 
+      src="/images/Avatar_JorgeBorges-removebg-preview.webp" 
+      alt="Foto de Jorge Borges"
+      class="object-cover"
+    />
+    <div 
+      class="absolute bottom-0 left-0 w-full"
+      style="
+        height: 20%;
+        background: linear-gradient(to top, rgba(26, 26, 26, 1), transparent);
+        pointer-events: none;
+      "
+    ></div>
+  </div>
+</section>

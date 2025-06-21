@@ -1,0 +1,33 @@
+---
+import MainLayout from '../layouts/MainLayout.astro'
+import ProjectCard from '../components/ProjectCard.astro';
+import { projects } from '../data/projects.data';
+---
+
+<MainLayout>
+  <!-- Hero Breve -->
+  <section class="py-16 text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl font-bold">Proyectos Destacados</h1>
+      <h2 class="text-3xl font-bold text-gray-400 text-center">Desde sistemas empresariales en VB.NET hasta plataformas web modernas.</h2>
+      <p class="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">
+        Algunos de los proyectos más importantes que he desarrollado a lo largo de mi carrera como desarrollador Full Stack desde VB5 hasta hoy.
+      </p>
+    </div>
+  </section>
+
+  <!-- Proyectos Destacados -->
+  <section class="py-6">
+      <div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 container mx-auto px-4 justify-items-center">
+        {projects.map((project) => (
+          <ProjectCard 
+            title={project.title}
+            descriptionBreve={project.descriptionBreve}
+            technologies={project.technologies}
+            image={project.image}
+            slug={project.slug}
+          />
+        ))}
+      </div>
+  </section>
+</MainLayout>

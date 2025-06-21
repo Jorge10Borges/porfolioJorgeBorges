@@ -1,0 +1,79 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  technologies: string[];
+  image: string;
+  year?: string;
+  technicalDetails?: {
+    lenguaje: string;
+    baseDeDatos: string;
+    multimedia: string;
+    distribucion: string;
+    otrosRecursos: string;
+  };
+  contribution: string;
+  featuredChallenges?: string;
+  impact?: string;
+  url?: string;
+}
+
+const { title, description, technologies, image, year = 'N/A,', technicalDetails, contribution, featuredChallenges, impact, url } = Astro.props;
+---
+
+<section class="py-16 bg-gray-900 text-white">
+  <div class="container mx-auto px-4 max-w-4xl">
+    <!-- Título -->
+    <h1 class="text-4xl font-bold text-blue-400">{title}</h1>
+    <p class="mt-2 text-gray-400">Período: {year} | Tecnología: {technologies.join(" / ")}</p>
+
+    <!-- Imagen destacada -->
+    <img 
+      src={image} 
+      alt={`Interfaz del proyecto ${title}`} 
+      class="w-full h-auto mt-6 rounded shadow-lg"
+      loading="lazy"
+    />
+
+    <!-- Descripción -->
+    <div class="mt-8 prose max-w-none text-gray-300">
+      <h2 class="text-2xl font-semibold text-white">Sobre este proyecto</h2>
+      <p>{description}</p>
+
+      <h2 class="text-2xl font-semibold text-white mt-8">Detalles técnicos</h2>
+      <ul class="list-disc pl-5 space-y-1 mt-2">
+        <li><strong>Lenguaje:</strong> {technicalDetails.lenguaje}</li>
+        <li><strong>Base de Datos:</strong> {technicalDetails.baseDeDatos}</li>
+        <li><strong>Multimedia:</strong> {technicalDetails.multimedia}</li>
+        <li><strong>Distribución:</strong> {technicalDetails.distribucion}</li>
+        <li><strong>Otros Recursos:</strong> {technicalDetails.otrosRecursos}</li>
+      </ul>
+
+      <h2 class="text-2xl font-semibold text-white mt-8">Rol y contribuciones</h2>
+      <p>{contribution}</p>
+
+      <h2 class="text-2xl font-semibold text-white mt-8">Desafíos destacados</h2>
+      <p>{featuredChallenges}</p>
+
+      <h2 class="text-2xl font-semibold text-white mt-8">Impacto</h2>
+      <p>{impact}</p>
+
+      {url && (
+        <div class="mt-4">
+          Ver proyecto en línea:
+          <a href={url} class="text-blue-400 hover:text-blue-300 transition underline" target="_blank" rel="noopener noreferrer">
+            {url}
+          </a>
+        </div>
+      )}
+
+    <!-- Botón navegar -->
+    <div class="mt-8">
+      <a href="/projects" class="text-blue-400 hover:text-blue-300 transition underline">
+        ← Volver al portafolio
+      </a>
+    </div>
+
+
+  </div>
+</section>

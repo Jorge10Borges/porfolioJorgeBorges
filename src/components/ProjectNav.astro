@@ -1,0 +1,44 @@
+---
+import { projects } from '../data/projects.data';
+const { slug } = Astro.params;
+
+// Buscamos el índice del proyecto actual
+const currentIndex = projects.findIndex(p => p.slug === slug);
+
+// Calculamos los índices de anterior y siguiente
+const prevProject = projects[currentIndex - 1];
+const nextProject = projects[currentIndex + 1];
+---
+
+<div class="container mx-auto px-4 mt-12">
+  <nav class="flex justify-between items-center text-white">
+    <!-- Proyecto anterior -->
+    <div>
+      {prevProject ? (
+        <a href={`/project/${prevProject.slug}`} class="text-gray-400 hover:text-blue-400 transition flex items-center gap-2">
+          ← Anterior
+          <span class="block text-sm text-blue-400">{prevProject.title}</span>
+        </a>
+      ) : (
+        <span class="text-gray-600">← Sin proyecto anterior</span>
+      )}
+    </div>
+
+    <!-- Volver al portafolio -->
+    <div class="text-center">
+      <a href="/projects" class="text-blue-400 underline text-sm">Ver todos los proyectos</a>
+    </div>
+
+    <!-- Próximo proyecto -->
+    <div class="text-right">
+      {nextProject ? (
+        <a href={`/project/${nextProject.slug}`} class="text-gray-400 hover:text-blue-400 transition flex items-center gap-2">
+          <span class="block text-sm text-blue-400">{nextProject.title}</span>
+          Próximo →
+        </a>
+      ) : (
+        <span class="text-gray-600">Sin próximo proyecto →</span>
+      )}
+    </div>
+  </nav>
+</div>

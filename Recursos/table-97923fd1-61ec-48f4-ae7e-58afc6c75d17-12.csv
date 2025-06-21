@@ -1,0 +1,7 @@
+﻿Uso,Color Hex,Tailwind Class Sugerido
+Primario,#0073e6,text-blue-500 / bg-blue-500
+Secundario,#f1c40f,text-yellow-500
+Fondo claro,#ffffff,bg-white
+Fondo oscuro,#1b1b1b,bg-gray-900
+Texto primario,#222222,text-gray-800
+Texto secundario,#7a7a7a,text-gray-500

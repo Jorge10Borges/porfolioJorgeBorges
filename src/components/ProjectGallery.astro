@@ -1,0 +1,90 @@
+---
+interface Props {
+  images: string[];
+}
+const { images } = Astro.props;
+---
+
+<!-- Galería de imágenes -->
+<section class="py-12 bg-gray-800 text-white">
+  <div class="container mx-auto px-4 max-w-4xl">
+    <h2 class="text-2xl font-semibold mb-6">Galería de imágenes</h2>
+    
+    <!-- Grid responsivo -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      {images.map((img) => (
+        <div 
+          class="overflow-hidden rounded shadow transition-transform hover:scale-105"
+        >
+          <img 
+            src={img} 
+            alt={`Imagen de ${Astro.url.pathname.split('/').pop() || 'proyecto'}`}
+            loading="lazy"
+            class="w-full h-auto object-cover"
+            onclick="mostrarModal(this.src)"
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Modal de imagen grande -->
+  <style>
+    /* Oculta el modal por defecto */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+      z-index: 50;
+      opacity: 0;
+    }
+
+    .modal.show {
+      display: flex;
+      transition: opacity 0.4s ease-in-out;
+      opacity: 1;
+    }
+
+    .modal {
+      transition: opacity 0.4s ease;
+    }
+
+    .modal.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal:not(.show) {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .modal img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+  </style>
+  <!-- Modal -->
+  <div class="modal" id="modal" onclick="cerrarModal()">
+    <img id="imagenAmpliada" src="" alt="Vista ampliada" />
+  </div>
+
+  <script is:inline>
+    function mostrarModal(src) {
+      const modal = document.getElementById('modal');
+      const imagen = document.getElementById('imagenAmpliada');
+      imagen.src = src;
+      modal.classList.add('show');
+    }
+
+    function cerrarModal() {
+      document.getElementById('modal').classList.remove('show');
+    }
+  </script>
+
+</section>

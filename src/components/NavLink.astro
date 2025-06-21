@@ -1,0 +1,33 @@
+---
+interface Props {
+  href: string;
+  label: string;
+}
+
+const { href, label } = Astro.props;
+
+// Determina si esta ruta es la activa
+//const isActive = Astro.url.pathname === href || (href === '/projects' && Astro.url.pathname.startsWith('/project/'));
+const isActive = Astro.url.pathname === href
+---
+
+<!-- <a 
+  href={href} 
+  class={`nav-link relative hover:text-white transition-all duration-300 ${
+    isActive ? 'text-blue-500' : 'text-gray-400'
+  }`}
+>
+  
+</a> -->
+<a 
+  href={href}
+  class={`relative hover:text-white
+  hover:before:content-[''] hover:before:absolute hover:before:h-2 hover:before:w-full hover:before:bottom-0 hover:before:left-0
+  hover:before:bg-blue-400 hover:before:blur-sm hover:before:rounded
+  ${isActive ? 
+  `before:content-[""] before:absolute before:h-2 before:w-full before:bottom-0 before:left-0
+  before:bg-blue-400 before:blur-sm before:rounded` : 'text-gray-400'}`}
+>
+  {label}
+</a>
+

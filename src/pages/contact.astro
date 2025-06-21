@@ -1,0 +1,185 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout>
+  <!-- Hero Section -->
+  <section class="bg-gray-900 text-white py-16 text-center" data-aos="fade-up">
+    <div class="container mx-auto px-4">
+      <!-- Imagen antes del H1 -->
+      <img 
+        src="/images/Avatar_JorgeBorges-removebg-preview.webp" 
+        alt="Ícono de contacto" 
+        class="w-72 h-auto mx-auto mb-4"
+        data-aos="zoom-in" 
+        data-aos-delay="300"
+      />
+
+      <h1 class="text-4xl font-bold" data-aos="fade-up" data-aos-delay="500">Contáctame</h1>
+
+      <p class="mt-2 max-w-xl mx-auto text-gray-300" data-aos="fade-up" data-aos-delay="600">
+        ¿Tienes un proyecto en mente? Escríbeme por correo, WhatsApp o usa el formulario.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contacto principal -->
+  <section class="py-12 bg-black/90 text-white" data-aos="fade-up" data-aos-delay="700">
+    <div class="container mx-auto px-4 max-w-5xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Formulario -->
+        <form id="contact-form" class="space-y-4" method="POST" action="/api_mail/index.php"> 
+          <!-- Nombre -->
+          <div data-aos="fade-right" data-aos-delay="300">
+            <label for="name" class="block mb-1 text-sm font-medium">Nombre</label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              required 
+              minlength="2"
+              maxlength="100"
+              class="w-full p-3 rounded bg-gray-800 border border-gray-700 focus:border-blue-500 outline-none"
+              placeholder="Tu nombre completo"
+            />
+          </div>
+
+          <!-- Email -->
+          <div data-aos="fade-right" data-aos-delay="300">
+            <label for="email" class="block mb-1 text-sm font-medium">Correo electrónico</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              required 
+              class="w-full p-3 rounded bg-gray-800 border border-gray-700 focus:border-blue-500 outline-none"
+              placeholder="tu@email.com"
+            />
+          </div>
+
+          <!-- Mensaje -->
+          <div data-aos="fade-right" data-aos-delay="300">
+            <label for="message" class="block mb-1 text-sm font-medium">Mensaje</label>
+            <textarea 
+              id="message" 
+              name="message" 
+              required 
+              minlength="10"
+              rows="5" 
+              class="w-full p-3 rounded bg-gray-800 border border-gray-700 focus:border-blue-500 outline-none"
+              placeholder="¿En qué puedo ayudarte?"
+            ></textarea>
+          </div>
+
+          <!-- Botón de envío -->
+          <button 
+            type="submit" 
+            class="px-6 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded transition"
+            data-aos="fade-up" 
+            data-aos-delay="300"
+          >
+            Enviar mensaje
+          </button>
+
+          <!-- Resultado dinámico -->
+          <div id="form-result" class="hidden mt-4 text-green-400"></div>
+        </form>
+
+        <!-- Información de contacto -->
+        <div class="flex flex-col space-y-6" data-aos="fade-left" data-aos-delay="300">
+          <h2 class="text-2xl font-semibold text-blue-400">Otras formas de contactarme</h2>
+          
+          <!-- WhatsApp -->
+          <a href="https://wa.me/544246334377"  target="_blank" rel="noopener noreferrer" class="flex items-start gap-3">
+            <svg width="28px" height="28px" viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path fill="#00C951" fill-rule="evenodd" d="M96 16c-44.183 0-80 35.817-80 80 0 13.12 3.163 25.517 8.771 36.455l-8.608 36.155a6.002 6.002 0 0 0 7.227 7.227l36.155-8.608C70.483 172.837 82.88 176 96 176c44.183 0 80-35.817 80-80s-35.817-80-80-80ZM28 96c0-37.555 30.445-68 68-68s68 30.445 68 68-30.445 68-68 68c-11.884 0-23.04-3.043-32.747-8.389a6.003 6.003 0 0 0-4.284-.581l-28.874 6.875 6.875-28.874a6.001 6.001 0 0 0-.581-4.284C31.043 119.039 28 107.884 28 96Zm46.023 21.977c11.975 11.974 27.942 20.007 45.753 21.919 11.776 1.263 20.224-8.439 20.224-18.517v-6.996a18.956 18.956 0 0 0-13.509-18.157l-.557-.167-.57-.112-8.022-1.58a18.958 18.958 0 0 0-15.25 2.568 42.144 42.144 0 0 1-7.027-7.027 18.958 18.958 0 0 0 2.569-15.252l-1.582-8.021-.112-.57-.167-.557A18.955 18.955 0 0 0 77.618 52H70.62c-10.077 0-19.78 8.446-18.517 20.223 1.912 17.81 9.944 33.779 21.92 45.754Zm33.652-10.179a6.955 6.955 0 0 1 6.916-1.743l8.453 1.665a6.957 6.957 0 0 1 4.956 6.663v6.996c0 3.841-3.124 6.995-6.943 6.585a63.903 63.903 0 0 1-26.887-9.232 64.594 64.594 0 0 1-11.661-9.241 64.592 64.592 0 0 1-9.241-11.661 63.917 63.917 0 0 1-9.232-26.888C63.626 67.123 66.78 64 70.62 64h6.997a6.955 6.955 0 0 1 6.66 4.957l1.667 8.451a6.956 6.956 0 0 1-1.743 6.917l-1.12 1.12a5.935 5.935 0 0 0-1.545 2.669c-.372 1.403-.204 2.921.603 4.223a54.119 54.119 0 0 0 7.745 9.777 54.102 54.102 0 0 0 9.778 7.746c1.302.806 2.819.975 4.223.603a5.94 5.94 0 0 0 2.669-1.545l1.12-1.12Z" clip-rule="evenodd"></path></g></svg>
+            <span class="text-sm">+54 424 6334377</span>
+          </a>
+
+          <!-- Email -->
+          <a href="mailto:jorge@appjorge.com.ar" class="flex items-start gap-3">
+            <svg width="28px" height="28px" viewBox="0 -4 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>mail</title> <desc>Created with Sketch Beta.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" > <g id="Icon-Set" transform="translate(-412.000000, -259.000000)" fill="#2B7FFF"> <path d="M442,279 C442,279.203 441.961,279.395 441.905,279.578 L433,270 L442,263 L442,279 L442,279 Z M415.556,280.946 L424.58,271.33 L428,273.915 L431.272,271.314 L440.444,280.946 C440.301,280.979 415.699,280.979 415.556,280.946 L415.556,280.946 Z M414,279 L414,263 L423,270 L414.095,279.578 C414.039,279.395 414,279.203 414,279 L414,279 Z M441,261 L428,271 L415,261 L441,261 L441,261 Z M440,259 L416,259 C413.791,259 412,260.791 412,263 L412,279 C412,281.209 413.791,283 416,283 L440,283 C442.209,283 444,281.209 444,279 L444,263 C444,260.791 442.209,259 440,259 L440,259 Z" id="mail"> </path> </g> </g> </g></svg>
+            <span class="text-sm">dev@appjorge.com</span>
+          </a>
+
+          <!-- Ubicación -->
+          <a href="https://maps.google.com"  target="_blank" class="flex items-start gap-3">
+            <svg width="32px" height="32px" viewBox="20 20 172 172" xmlns="http://www.w3.org/2000/svg" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path stroke="#AD46FF" stroke-width="12" d="M96 22a51.88 51.88 0 0 0-36.77 15.303A52.368 52.368 0 0 0 44 74.246c0 16.596 4.296 28.669 20.811 48.898a163.733 163.733 0 0 1 20.053 28.38C90.852 163.721 90.146 172 96 172c5.854 0 5.148-8.279 11.136-20.476a163.723 163.723 0 0 1 20.053-28.38C143.704 102.915 148 90.841 148 74.246a52.37 52.37 0 0 0-15.23-36.943A51.88 51.88 0 0 0 96 22Z"></path><circle cx="96" cy="74" r="20" stroke="#AD46FF" stroke-width="12"></circle></g></svg>
+            <span class="text-sm">Los Teques, Miranda - Venezuela</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Script para manejar el formulario -->
+  <script is:inline>
+    const form = document.getElementById("contact-form");
+    const result = document.getElementById("form-result");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      //const formData = new FormData(form);
+      //const data = Object.fromEntries(formData);
+      const formData = new FormData();
+      const name = document.getElementById("name");
+      const email = document.getElementById("email");
+      const message = document.getElementById("message");
+
+      formData.append('name', name.value);
+      formData.append('email', email.value);
+      formData.append('message', message.value);
+      result.classList.add("hidden");
+      /* Realizar la petición fetch*/
+      fetch('/api_mail/index.php', {
+        method: 'POST',
+        body: formData,
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        result.classList.remove("hidden");
+        if (data.status === "success") {
+          result.textContent = "¡Tu mensaje fue enviado correctamente!";
+          result.classList.remove("text-red-400");
+          result.classList.add("text-green-400");
+          form.reset();
+        } else {
+          result.textContent = "Hubo un error al enviar el mensaje.";
+          result.classList.remove("text-green-400");
+          result.classList.add("text-red-400");
+        }
+
+      })
+      .catch(error => {
+        console.error('Error: ', error);
+      });
+      
+
+/*       try {
+        const res = await fetch("/api_mail/index.php",  {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        });
+
+        const response = await res.json();
+
+        if (response.status === "success") {
+          result.textContent = "¡Tu mensaje fue enviado correctamente!";
+          result.classList.remove("hidden");
+          result.classList.add("text-green-400");
+          form.reset();
+        } else {
+          result.textContent = "Hubo un error al enviar el mensaje.";
+          result.classList.remove("hidden");
+          result.classList.add("text-red-400");
+        }
+      } catch (err) {
+        console.error(err);
+        result.textContent = "No se pudo conectar con el servidor.";
+        result.classList.remove("hidden");
+        result.classList.add("text-red-400");
+      } */
+    });
+  </script>
+</MainLayout>

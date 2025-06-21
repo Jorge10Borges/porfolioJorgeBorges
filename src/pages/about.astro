@@ -1,0 +1,102 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { skills } from '../data/skills.data';
+---
+
+<MainLayout>
+  <!-- Hero Breve -->
+  <section class="py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl font-bold text-gray-400">Sobre Mí</h1>
+      <p class="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">
+        Desarrollador Full Stack con más de 25 años de experiencia. Mi carrera comenzó en los años 90 con VB 5.0 y he evolucionado junto con la tecnología.
+      </p>
+    </div>
+  </section>
+
+  <!-- Trayectoria Profesional -->
+  <section class="py-16" data-aos="fade-up">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row gap-10 items-center md:items-start">
+        <!-- Foto -->
+        <div class="md:w-1/3 flex justify-center align-middle pt-0 md:pt-15">
+          <img src="/images/Logo Vertical 512x599.webp" alt="Jorge Borges - Desarrollador Full Stack" class="rounded-lg shadow-md w-60 " data-aos="fade-right">
+        </div>
+
+        <!-- Historia -->
+        <div class="md:w-2/3" data-aos="fade-left">
+          <h2 class="text-3xl font-bold text-gray-400">Mi Historia como Desarrollador</h2>
+
+          <p class="mt-4 text-gray-300">
+            Soy <strong>Jorge Borges</strong>, desarrollador Full Stack con más de <strong>25 años de experiencia</strong>. Mi carrera comenzó en Venezuela en el año <strong>1999</strong>, trabajando en el Instituto de Estudios Avanzados (IDEA) de la Universidad Simón Bolívar, donde comencé como digitalizador de mapas para proyectos del sistema ferroviario nacional usando herramientas como ArcInfo y MapInfo.
+          </p>
+
+          <p class="mt-4 text-gray-300">
+            Luego trabajé en <strong>CyberTrain</strong>, empresa dedicada al desarrollo de software educativo para empresas como PDVSA. Allí creé <strong>CyberMedia</strong>, un software innovador que permitía reproducir charlas o exposiciones con video sincronizado, subtítulos y material de apoyo, distribuido a través de CD-ROM. También desarrollé aplicaciones pioneras como <strong>Lottery 95</strong> y <strong>Lottery 2000</strong>, uno de los primeros sistemas en Venezuela para la venta de loterías bajo entorno Windows, con transmisión de datos vía modem, construidos con <strong>VB 5.0</strong> y luego migrados a <strong>VB 6.0</strong>.
+          </p>
+
+          <p class="mt-4 text-gray-300">
+            Posteriormente desarrollé <strong>Inventory</strong>, un sistema de control de inventarios para una empresa de distribución de hortalizas con conexión remota mediante HTTP entre dos estados de Venezuela, realizado en <strong>VB.NET</strong>. Me mudé a Colombia, donde desarrollé soluciones como <strong>JBCont</strong> (facturación e inventario para una distribuidora de papelería con más de 16.000 artículos) y <strong>JTInventory</strong> para el control de ventas de repuestos de motos.
+          </p>
+
+          <p class="mt-4 text-gray-300">
+            Finalmente, he evolucionado al mundo del desarrollo web, creando plataformas como <a href="https://www.tiendalumi.com"  target="_blank" class="text-blue-500 hover:underline">TiendaLumi.com</a> (una tienda online de aromatizantes en Argentina), y <a href="https://www.sinatracibi.com"  target="_blank" class="text-blue-500 hover:underline">Sinatracibi.com</a>, sitio web para un sindicato en Venezuela.
+          </p>
+
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a href="/contact" class="px-6 py-3 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
+              Contáctame
+            </a>
+            <a href="/cv/JorgeBorges_CV.pdf" download class="px-6 py-3 border border-blue-500 text-blue-500 rounded hover:bg-blue-50 transition">
+              Descargar CV
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Habilidades técnicas -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-gray-400 text-center">Tecnologías y Habilidades</h2>
+      <p class="mt-2 text-center text-gray-300 max-w-xl mx-auto">
+        Herramientas y lenguajes con los que tengo experiencia profesional desde VB5 hasta hoy.
+      </p>
+
+      <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {skills.map((skill) => (
+          <div class="border p-4 rounded-lg bg-white shadow-blue-600 hover:shadow-md" data-aos="flip-up">
+            <div class="text-center">
+            <img src={skill.img} alt={skill.title} class="h-12 object-cover mb-2 rounded mx-auto" />
+            </div>
+            <h4 class="font-semibold text-lg text-blue-500">{skill.title}</h4>
+            <p class="mt-1 text-gray-600">
+              {skill.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  <!--  -->
+  <!-- Educación -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-gray-400 text-center">Educación</h2>
+      <p class="mt-2 text-center text-gray-300 max-w-xl mx-auto">
+        Formación académica y certificaciones relevantes
+      </p>
+
+      <div class="mt-8 space-y-6">
+        <div class="p-4 rounded shadow-sm border-l-4 border-blue-500">
+          <h3 class="text-xl font-semibold text-gray-400">Licenciatura en Administración con mención en Informática</h3>
+          <p class="text-gray-300">Universidad Simón Rodríguez – Venezuela – Año de graduación: 2025</p>
+          <p class="mt-2 text-gray-300 ">
+            Formación enfocada en gestión empresarial y desarrollo tecnológico.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>

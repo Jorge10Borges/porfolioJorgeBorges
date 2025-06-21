@@ -1,0 +1,17 @@
+{
+  "name": "porfoliojorgeborges",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev --host 192.168.0.200",
+    "build": "astro build",
+    "preview": "astro preview --host 192.168.0.200",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.8",
+    "aos": "^2.3.4",
+    "astro": "^5.9.2",
+    "tailwindcss": "^4.1.8"
+  }
+}

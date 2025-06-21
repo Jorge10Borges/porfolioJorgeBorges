@@ -1,0 +1,43 @@
+---
+const path = Astro.url.pathname;
+const segments = path.split('/').filter(Boolean);
+const breadcrumbItems = [
+  { label: 'Inicio', href: '/' }
+];
+
+let currentPath = '';
+segments.forEach((seg, index) => {
+  currentPath += `/${seg}`;
+  const isLast = index === segments.length - 1;
+
+  let label = seg;
+  if (seg === 'project') label = 'Proyecto';
+  if (isLast && seg === 'cybermedia') label = 'CyberMedia';
+  if (isLast && seg === 'jbcont') label = 'JBCont';
+  if (isLast && seg === 'about') label = 'Sobre Mí';
+  if (isLast && seg === 'projects') label = 'Proyectos';
+
+  breadcrumbItems.push({
+    label,
+    href: currentPath
+  });
+});
+---
+
+<nav aria-label="Breadcrumb" class="container mx-auto px-4 py-6 text-sm">
+  <ol class="flex space-x-2 text-gray-400">
+    {breadcrumbItems.map((item, idx) => (
+      <>
+        <li class="flex items-center">
+          <a 
+            href={item.href} 
+            class={`hover:text-blue-400 transition ${idx === breadcrumbItems.length - 1 ? 'text-white font-medium' : ''}`}
+          >
+            {item.label}
+          </a>
+          {idx < breadcrumbItems.length - 1 && <span class="mx-2">/</span>}
+        </li>
+      </>
+    ))}
+  </ol>
+</nav>

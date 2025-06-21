@@ -1,0 +1,55 @@
+---
+import '../styles/global.css';
+
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import IconWhatsapp from '../components/IconWhatsapp.astro';
+/* import { ClientRouter } from 'astro:transitions'; */
+
+const title = 'Jorge Borges – Portafolio';
+const description = 'Desarrollador Full Stack con más de 25 años de experiencia.';
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Open Graph -->
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:image" content="/images/seo-card.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@tuusuario">
+    <meta name="twitter:title" content="Jorge Borges – Portafolio">
+    <meta name="twitter:description" content="Desarrollador Full Stack desde VB5 hasta tecnologías web modernas">
+    <meta name="twitter:image" content="/images/seo-card.png">
+
+    <link rel="icon" type="image/x-icon" href="/logo.ico" />
+    <title>{title}</title>
+    <!-- <ClientRouter /> -->
+  </head>
+  <body class="bg-black/90 text-gray-800 font-sans leading-relaxed tracking-wide flex flex-col justify-center items-center">
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer/>
+    <IconWhatsapp />
+    <!-- Scripts -->
+    <script src="/scripts/aos.js" is:inline></script>
+    <script is:inline>
+        AOS.init({
+          duration: 1000,
+          once: true,
+          offset: 100,
+          easing: 'ease-in-out'
+        });
+    </script>
+    
+  </body>
+</html>
