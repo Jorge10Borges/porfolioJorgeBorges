@@ -1,43 +1,55 @@
-# Astro Starter Kit: Minimal
+# Jorge Borges – Portafolio
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Este es el portafolio personal de Jorge Borges, Desarrollador Full Stack con más de 25 años de experiencia, construido con [Astro](https://astro.build/).
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+## Descripción
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Sitio web profesional que muestra proyectos, habilidades y servicios de Jorge Borges. Incluye integración con PHPMailer para el formulario de contacto y animaciones AOS.
 
-## 🚀 Project Structure
+## Tecnologías principales
 
-Inside of your Astro project, you'll see the following folders and files:
+- Astro
+- TypeScript
+- Tailwind CSS
+- PHPMailer (para backend de contacto)
+- AOS (Animate On Scroll)
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## Estructura del proyecto
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+- `src/` – Componentes, layouts, páginas y estilos.
+- `public/` – Imágenes, scripts y recursos estáticos.
+- `public/api_mail/` – Backend PHP para el formulario de contacto.
+- `astro.config.mjs`, `tsconfig.json` – Configuración del proyecto.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Instalación y uso
 
-Any static assets, like images, can be placed in the `public/` directory.
+1. Clona el repositorio:
+   ```sh
+   git clone https://github.com/<tu-usuario>/<nombre-repo>.git
+   cd <nombre-repo>
+   ```
+2. Instala las dependencias:
+   ```sh
+   npm install
+   ```
+3. Inicia el servidor de desarrollo:
+   ```sh
+   npm run dev
+   ```
+4. Accede a `http://localhost:4321` en tu navegador.
 
-## 🧞 Commands
+## Despliegue
 
-All commands are run from the root of the project, from a terminal:
+Puedes desplegar este proyecto en cualquier hosting compatible con Node.js o servicios como Vercel, Netlify, etc.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
+## Autor
+
+[Jorge Borges](https://appjorge.com)  
+Twitter: [@DevJorgeBorges](https://twitter.com/DevJorgeBorges)
+
+---
+
+¡Gracias por visitar mi portafolio!
 | `npm run preview`         | Preview your build locally, before deploying     |
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
